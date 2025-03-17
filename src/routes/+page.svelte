@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { ArrowRight } from '@lucide/svelte';
+	import { ArrowRight, Github } from '@lucide/svelte';
 </script>
 
 <section class="py-12 md:py-24">
@@ -14,7 +14,9 @@
 			<Button size="lg" href="/activities">
 				Start <ArrowRight class="text-lg" />
 			</Button>
-			<Button size="lg" variant="outline">Learn More</Button>
+			<Button size="lg" variant="outline" href="https://github.com/amrllkmn/apex" target="_blank"
+				>Learn More <Github /></Button
+			>
 		</div>
 	</div>
 </section>
