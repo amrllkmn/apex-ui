@@ -4,6 +4,7 @@
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import { Label } from '$lib/components/ui/label/index.js';
+	const { data } = $props();
 </script>
 
 <Tabs.Root value="daily" class="w-full sm:w-1/2">
@@ -13,90 +14,14 @@
 		<Tabs.Trigger value="monthly">Monthly</Tabs.Trigger>
 	</Tabs.List>
 	<Tabs.Content value="daily" class="space-y-4">
-		<Card.Root>
-			<Card.Header>
-				<Card.Title>Account</Card.Title>
-				<Card.Description>
-					Make changes to your account here. Click save when you're done.
-				</Card.Description>
-			</Card.Header>
-			<Card.Content class="space-y-2">
-				<div class="space-y-1">
-					<Label for="name">Name</Label>
-					<Input id="name" value="Pedro Duarte" />
-				</div>
-				<div class="space-y-1">
-					<Label for="username">Username</Label>
-					<Input id="username" value="@peduarte" />
-				</div>
-			</Card.Content>
-			<Card.Footer>
-				<Button>Save changes</Button>
-			</Card.Footer>
-		</Card.Root>
-		<Card.Root>
-			<Card.Header>
-				<Card.Title>Account</Card.Title>
-				<Card.Description>
-					Make changes to your account here. Click save when you're done.
-				</Card.Description>
-			</Card.Header>
-			<Card.Content class="space-y-2">
-				<div class="space-y-1">
-					<Label for="name">Name</Label>
-					<Input id="name" value="Pedro Duarte" />
-				</div>
-				<div class="space-y-1">
-					<Label for="username">Username</Label>
-					<Input id="username" value="@peduarte" />
-				</div>
-			</Card.Content>
-			<Card.Footer>
-				<Button>Save changes</Button>
-			</Card.Footer>
-		</Card.Root>
-		<Card.Root>
-			<Card.Header>
-				<Card.Title>Account</Card.Title>
-				<Card.Description>
-					Make changes to your account here. Click save when you're done.
-				</Card.Description>
-			</Card.Header>
-			<Card.Content class="space-y-2">
-				<div class="space-y-1">
-					<Label for="name">Name</Label>
-					<Input id="name" value="Pedro Duarte" />
-				</div>
-				<div class="space-y-1">
-					<Label for="username">Username</Label>
-					<Input id="username" value="@peduarte" />
-				</div>
-			</Card.Content>
-			<Card.Footer>
-				<Button>Save changes</Button>
-			</Card.Footer>
-		</Card.Root>
-		<Card.Root>
-			<Card.Header>
-				<Card.Title>Account</Card.Title>
-				<Card.Description>
-					Make changes to your account here. Click save when you're done.
-				</Card.Description>
-			</Card.Header>
-			<Card.Content class="space-y-2">
-				<div class="space-y-1">
-					<Label for="name">Name</Label>
-					<Input id="name" value="Pedro Duarte" />
-				</div>
-				<div class="space-y-1">
-					<Label for="username">Username</Label>
-					<Input id="username" value="@peduarte" />
-				</div>
-			</Card.Content>
-			<Card.Footer>
-				<Button>Save changes</Button>
-			</Card.Footer>
-		</Card.Root>
+		{#each data.activities as { title, count, limit, isStop, done }}
+			<Card.Root>
+				<Card.Header>
+					<Card.Title>{title}</Card.Title>
+				</Card.Header>
+				<Card.Content></Card.Content>
+			</Card.Root>
+		{/each}
 	</Tabs.Content>
 	<Tabs.Content value="weekly">
 		<Card.Root>
