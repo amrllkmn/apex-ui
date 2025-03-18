@@ -10,7 +10,7 @@
 	>
 		<a href="/" class="flex items-center gap-2 text-xl font-bold md:text-lg">
 			<Mountain class="size-6" />
-			Apex.
+			{process.env.NODE_ENV === 'development' ? 'Apex - Dev' : 'Apex.'}
 		</a>
 	</nav>
 	<div class="ml-auto flex items-center gap-4 md:gap-2 lg:gap-4">
