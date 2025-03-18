@@ -1,9 +1,10 @@
 <script lang="ts">
-	import * as Tabs from '$lib/components/ui/tabs/index.js';
-	import * as Card from '$lib/components/ui/card/index.js';
-	import { Button } from '$lib/components/ui/button/index.js';
-	import { Input } from '$lib/components/ui/input/index.js';
-	import { Label } from '$lib/components/ui/label/index.js';
+	import * as Tabs from '$lib/components/ui/tabs';
+	import * as Card from '$lib/components/ui/card';
+	import { Button } from '$lib/components/ui/button';
+	import { Input } from '$lib/components/ui/input';
+	import { Label } from '$lib/components/ui/label';
+	import { Progress } from '$lib/components/ui/progress';
 	const { data } = $props();
 </script>
 
@@ -19,7 +20,9 @@
 				<Card.Header>
 					<Card.Title>{title}</Card.Title>
 				</Card.Header>
-				<Card.Content></Card.Content>
+				<Card.Content class="space-y-2">
+					<Progress value={(count / limit) * 100} max={(limit / limit) * 100} />
+				</Card.Content>
 			</Card.Root>
 		{/each}
 	</Tabs.Content>
