@@ -6,9 +6,9 @@
 </script>
 
 <ModeWatcher />
-<div class="flex h-screen w-full flex-col items-center justify-between overflow-auto">
+<div class="flex min-h-screen w-full flex-col">
 	<Navbar />
-	<div class="mb-auto flex h-full w-full flex-col items-center justify-center px-4">
+	<main class="mb-auto mt-auto flex flex-1 flex-col items-center justify-center px-4 py-4">
 		{@render children()}
-	</div>
+	</main>
 </div>
