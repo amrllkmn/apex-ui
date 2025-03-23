@@ -1,11 +1,10 @@
 <script lang="ts">
+	import Activity from '$lib/components/ui/activity';
 	import * as Tabs from '$lib/components/ui/tabs';
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
-	import { Progress } from '$lib/components/ui/progress';
-	import { CircleCheck, Plus } from '@lucide/svelte';
 	const { data } = $props();
 </script>
 
@@ -17,34 +16,8 @@
 	</Tabs.List>
 	<Tabs.Content value="daily" class="space-y-4">
 		<!-- TODO: Move to separate component -->
-		{#each data.activities as { title, count, limit, isStop, done }}
-			<Card.Root>
-				<Card.Header>
-					<Card.Title>
-						<div class="flex-2 flex flex-row items-center justify-between space-x-2">
-							{title}
-							{#if done}
-								<CircleCheck color="hsl(142, 71%, 45%)" /> <!-- Use a component-level styling -->
-							{/if}
-						</div>
-					</Card.Title>
-					<Card.Description>
-						{count}/{limit}
-					</Card.Description>
-				</Card.Header>
-				<Card.Content class="space-y-2">
-					<div class="flex-2 flex flex-row items-center justify-between space-x-2">
-						<Progress
-							value={(count / limit) * 100}
-							max={(limit / limit) * 100}
-							class="text-lime-300"
-						/>
-						<Button variant="outline" size="icon">
-							<Plus />
-						</Button>
-					</div>
-				</Card.Content>
-			</Card.Root>
+		{#each data.activities as { id, title, count, limit, isStop, done }}
+			<Activity {id} {title} {count} {limit} {isStop} {done} />
 		{/each}
 	</Tabs.Content>
 	<Tabs.Content value="weekly">
