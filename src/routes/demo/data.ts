@@ -32,3 +32,19 @@ export const activities: TActivities[] = [
     isStop: true
   }
 ]
+
+export const updateActivity = async (id: number, data: TActivities) => {
+	const { count } = data
+
+	activities.forEach((activity) => {
+		if (activity.id === id) {
+			activity.count += count 
+
+			if (activity.count === activity.limit && !activity.isStop) {
+				activity.done = true
+			} else if (activity.count > activity.limit && activity.isStop) {
+				activity.done = false
+			}
+		}
+	})
+}

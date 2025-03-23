@@ -4,6 +4,7 @@
 	import { Button } from '../button';
 	import { CircleCheck, Plus } from '@lucide/svelte';
 	import type { TActivities } from '../../../../routes/demo/data';
+	import { invalidateAll } from '$app/navigation';
 
 	const props: TActivities = $props();
 </script>
@@ -29,7 +30,21 @@
 				max={(props.limit / props.limit) * 100}
 				class="text-lime-300"
 			/>
-			<Button variant="outline" size="icon">
+			<Button
+				variant="outline"
+				size="icon"
+				onclick={async () => {
+					await fetch(`/demo/${props.id}`, {
+						method: 'PATCH',
+						body: JSON.stringify({ count: 1 }),
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					});
+
+					invalidateAll();
+				}}
+			>
 				<Plus />
 			</Button>
 		</div>
