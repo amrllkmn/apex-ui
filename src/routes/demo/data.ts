@@ -33,18 +33,37 @@ export const activities: TActivities[] = [
   }
 ]
 
-export const updateActivity = async (id: number, data: TActivities) => {
+export const updateActivity = async (id: number, data: TActivities, action: string) => {
 	const { count } = data
 
 	activities.forEach((activity) => {
 		if (activity.id === id) {
-			activity.count += count 
-
-			if (activity.count === activity.limit && !activity.isStop) {
-				activity.done = true
-			} else if (activity.count > activity.limit && activity.isStop) {
-				activity.done = false
-			}
+        switch (action) {
+          case 'increment':
+            incrementActivity(activity, count)
+            break;
+          case 'decrement':
+            decrementActivity(activity, count)
+            break
+          default:
+            break;
+        }
 		}
 	})
+}
+
+const incrementActivity = async (activity: TActivities, count: number) => {
+  activity.count += count 
+
+  if (activity.count === activity.limit) {
+    activity.done = true
+  }
+}
+
+const decrementActivity = async (activity: TActivities, count: number) => {
+  activity.count -= count 
+
+  if (activity.count < activity.limit ) {
+    activity.done = false
+  }
 }

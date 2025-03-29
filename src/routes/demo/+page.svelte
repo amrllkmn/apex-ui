@@ -16,8 +16,8 @@
 	</Tabs.List>
 	<Tabs.Content value="daily" class="space-y-4">
 		<!-- TODO: Move to separate component -->
-		{#each data.activities as { id, title, count, limit, isStop, done }}
-			<Activity {id} {title} {count} {limit} {isStop} {done} />
+		{#each data.activities as activity}
+			<Activity {...activity} />
 		{/each}
 	</Tabs.Content>
 	<Tabs.Content value="weekly">

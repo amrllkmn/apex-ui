@@ -2,7 +2,7 @@
 	import * as Card from '../card';
 	import { Progress } from '../progress';
 	import { Button } from '../button';
-	import { CircleCheck, Plus } from '@lucide/svelte';
+	import { CircleCheck, Minus, Plus } from '@lucide/svelte';
 	import type { TActivities } from '../../../../routes/demo/data';
 	import { invalidateAll } from '$app/navigation';
 
@@ -24,7 +24,24 @@
 		</Card.Description>
 	</Card.Header>
 	<Card.Content class="space-y-2">
-		<div class="flex-2 flex flex-row items-center justify-between space-x-2">
+		<div class="flex-3 flex flex-row items-center justify-between space-x-3">
+			<Button
+				variant="outline"
+				size="icon"
+				onclick={async () => {
+					await fetch(`/demo/${props.id}?action=decrement`, {
+						method: 'PATCH',
+						body: JSON.stringify({ count: 1 }),
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					});
+
+					invalidateAll();
+				}}
+			>
+				<Minus />
+			</Button>
 			<Progress
 				value={(props.count / props.limit) * 100}
 				max={(props.limit / props.limit) * 100}
@@ -34,7 +51,7 @@
 				variant="outline"
 				size="icon"
 				onclick={async () => {
-					await fetch(`/demo/${props.id}`, {
+					await fetch(`/demo/${props.id}?action=increment`, {
 						method: 'PATCH',
 						body: JSON.stringify({ count: 1 }),
 						headers: {
