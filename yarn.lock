@@ -442,10 +442,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lucide/svelte@^0.482.0":
-  version "0.482.0"
-  resolved "https://registry.yarnpkg.com/@lucide/svelte/-/svelte-0.482.0.tgz#5e8abe1777d0d91ebf47359a1b39115739cac2b4"
-  integrity sha512-n2ycHU9cNcleRDwwpEHBJ6pYzVhHIaL3a+9dQa8kns9hB2g05bY+v2p2KP8v0pZwtNhYTHk/F2o2uZ1bVtQGhw==
+"@lucide/svelte@^0.485.0":
+  version "0.485.0"
+  resolved "https://registry.yarnpkg.com/@lucide/svelte/-/svelte-0.485.0.tgz#ce8f48047249374ccf3efa043e0835639ded8b34"
+  integrity sha512-8+pW8gyRc7D9tklhNxXV3v0N/7yIo64Njjs/+6zaD2d4dDqQkPT8WgVUQ/XXoKAAimJNiyrtu1SK4YiK42Jo9Q==
 
 "@mapbox/node-pre-gyp@^2.0.0":
   version "2.0.0"
@@ -960,10 +960,10 @@ bindings@^1.4.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
-bits-ui@^1.3.13:
-  version "1.3.13"
-  resolved "https://registry.yarnpkg.com/bits-ui/-/bits-ui-1.3.13.tgz#95baf40977805ca30bf40fb60b507cbbaf390543"
-  integrity sha512-0ysKdvHBIArfFBe+MYVAvu5OANOsivk+UJftdiW+e6lGHzf+EW/TZpLh69Vf0n8pYTjkH+33CHlVIImxTZRIMQ==
+bits-ui@^1.3.14:
+  version "1.3.14"
+  resolved "https://registry.yarnpkg.com/bits-ui/-/bits-ui-1.3.14.tgz#3a0c08f2829f8ae9b00b8a9c75174307f1e232f9"
+  integrity sha512-T4ClhH0eQmrhZ8uMfC8Q4WBcpygnfdVTfb/1Y/6PrYA5Fqv7HTLmK3B9NSv4DUbDXpuG4SiC2cPSXVUqsEA/aw==
   dependencies:
     "@floating-ui/core" "^1.6.4"
     "@floating-ui/dom" "^1.6.7"

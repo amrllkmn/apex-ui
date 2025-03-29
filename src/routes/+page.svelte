@@ -10,8 +10,8 @@
 		competition.
 	</p>
 	<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-		<Button size="lg" href="/activities">
-			Start <ArrowRight class="text-lg" />
+		<Button size="lg" href="/demo">
+			Try out the demo <ArrowRight class="text-lg" />
 		</Button>
 		<Button size="lg" variant="outline" href="https://github.com/amrllkmn/apex" target="_blank"
 			>Learn More <Github /></Button

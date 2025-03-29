@@ -2,9 +2,11 @@
 	import Activity from '$lib/components/ui/activity';
 	import * as Tabs from '$lib/components/ui/tabs';
 	import * as Card from '$lib/components/ui/card';
-	import { Button } from '$lib/components/ui/button';
+	import * as Dialog from '$lib/components/ui/dialog';
+	import { Button, buttonVariants } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
+	import { Plus } from '@lucide/svelte';
 	const { data } = $props();
 </script>
 
@@ -19,6 +21,32 @@
 		{#each data.activities as activity}
 			<Activity {...activity} />
 		{/each}
+		<Dialog.Root>
+			<Dialog.Trigger class={`w-full ${buttonVariants({ variant: 'outline' })}`}>
+				<Plus /> Add new activity
+			</Dialog.Trigger>
+			<Dialog.Content class="md:max-w-1/2">
+				<Dialog.Header>
+					<Dialog.Title>Edit profile</Dialog.Title>
+					<Dialog.Description>
+						Make changes to your profile here. Click save when you're done.
+					</Dialog.Description>
+				</Dialog.Header>
+				<div class="grid gap-4 py-4">
+					<div class="grid grid-cols-4 items-center gap-4">
+						<Label for="name" class="text-right">Name</Label>
+						<Input id="name" value="Pedro Duarte" class="col-span-3" />
+					</div>
+					<div class="grid grid-cols-4 items-center gap-4">
+						<Label for="username" class="text-right">Username</Label>
+						<Input id="username" value="@peduarte" class="col-span-3" />
+					</div>
+				</div>
+				<Dialog.Footer>
+					<Button type="submit">Save changes</Button>
+				</Dialog.Footer>
+			</Dialog.Content>
+		</Dialog.Root>
 	</Tabs.Content>
 	<Tabs.Content value="weekly">
 		<Card.Root>
