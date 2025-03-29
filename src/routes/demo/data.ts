@@ -4,7 +4,6 @@ export type TActivities = {
   count: number;
   limit: number;
   done: boolean;
-  isStop: boolean;
 }
 export const activities: TActivities[] = [
   {
@@ -13,7 +12,6 @@ export const activities: TActivities[] = [
     count: 3,
     limit: 7,
     done: false,
-    isStop: false
   },
   {
     id: 2,
@@ -21,16 +19,7 @@ export const activities: TActivities[] = [
     count: 1,
     limit: 1,
     done: true,
-    isStop: false
   },
-  {
-    id: 3,
-    title: "Stop smoking",
-    count: 0,
-    limit: 0,
-    done: true,
-    isStop: true
-  }
 ]
 
 export const updateActivity = async (id: number, data: TActivities, action: string) => {
