@@ -7,7 +7,10 @@
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
 	import { Plus } from '@lucide/svelte';
+	import { enhance } from '$app/forms';
 	const { data } = $props();
+
+	let isOpen = $state(false);
 </script>
 
 <Tabs.Root value="daily" class="w-full sm:w-1/2">
@@ -21,7 +24,12 @@
 		{#each data.activities as activity}
 			<Activity {...activity} />
 		{/each}
-		<Dialog.Root>
+		<Dialog.Root
+			open={isOpen}
+			onOpenChange={(open) => {
+				isOpen = open;
+			}}
+		>
 			<Dialog.Trigger class={`w-full ${buttonVariants({ variant: 'outline' })}`}>
 				<Plus /> Add new activity
 			</Dialog.Trigger>
@@ -32,7 +40,19 @@
 						Create a new activity you want track. Click save when you're done.
 					</Dialog.Description>
 				</Dialog.Header>
-				<form method="POST">
+				<form
+					method="POST"
+					use:enhance={() => {
+						// Return a callback that runs after form submission
+						return async ({ update }) => {
+							// First update the page as needed
+							await update();
+
+							// Then close the dialog
+							isOpen = false;
+						};
+					}}
+				>
 					<div class="grid gap-4 py-4">
 						<div class="grid grid-cols-4 items-center gap-4">
 							<Label for="title" class="text-right">Title</Label>
