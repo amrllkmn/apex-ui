@@ -27,24 +27,32 @@
 			</Dialog.Trigger>
 			<Dialog.Content class="md:max-w-1/2">
 				<Dialog.Header>
-					<Dialog.Title>Edit profile</Dialog.Title>
+					<Dialog.Title>Add new activity</Dialog.Title>
 					<Dialog.Description>
-						Make changes to your profile here. Click save when you're done.
+						Create a new activity you want track. Click save when you're done.
 					</Dialog.Description>
 				</Dialog.Header>
-				<div class="grid gap-4 py-4">
-					<div class="grid grid-cols-4 items-center gap-4">
-						<Label for="name" class="text-right">Name</Label>
-						<Input id="name" value="Pedro Duarte" class="col-span-3" />
+				<form method="POST">
+					<div class="grid gap-4 py-4">
+						<div class="grid grid-cols-4 items-center gap-4">
+							<Label for="title" class="text-right">Title</Label>
+							<Input
+								id="title"
+								value="Study for 30 mins"
+								class="col-span-3"
+								name="title"
+								required
+							/>
+						</div>
+						<div class="grid grid-cols-4 items-center gap-4">
+							<Label for="limit" class="text-right">Count</Label>
+							<Input id="limit" value="0" class="col-span-3" type="number" name="limit" />
+						</div>
 					</div>
-					<div class="grid grid-cols-4 items-center gap-4">
-						<Label for="username" class="text-right">Username</Label>
-						<Input id="username" value="@peduarte" class="col-span-3" />
-					</div>
-				</div>
-				<Dialog.Footer>
-					<Button type="submit">Save changes</Button>
-				</Dialog.Footer>
+					<Dialog.Footer>
+						<Button type="submit">Save changes</Button>
+					</Dialog.Footer>
+				</form>
 			</Dialog.Content>
 		</Dialog.Root>
 	</Tabs.Content>

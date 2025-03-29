@@ -41,6 +41,12 @@ export const updateActivity = async (id: number, data: TActivities, action: stri
 	})
 }
 
+export const createActivity = async (data: {title: string, limit: number}) => {
+  const {title, limit} = data
+  const newActivity : TActivities = {id: activities.length + 1,title, limit, count: 0, done: false}
+  activities.push(newActivity)
+}
+
 const incrementActivity = async (activity: TActivities, count: number) => {
   activity.count += count 
 
